@@ -1,0 +1,57 @@
+main {
+    display: flex; /* При таком отображении элементы встанут один за другим */
+    width: 100%;
+    flex-wrap: wrap; /* Элементы могут переходить на новые строки */
+    justify-content: space-between; /* Как элементы будут расположены */
+}
+
+main .product {
+    width: 30%;
+    margin-bottom: 50px;
+    background: #f5f5f5;
+    position: relative;
+    padding-bottom: 20px;
+    overflow: hidden; /* Чтобы при наведении и срабатывании transform картинкан не лезла за поля карточки */
+}
+
+main .product img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px 10px 0 0;
+    transition: transfrom 500ms ease;
+}
+
+main .product img:hover {
+    transform: scale(1.05); /* При наведении на карточку товара она будет расти */
+}
+
+main h2, .product-description, main b {
+    margin: 10px 20px;
+    color: #333;
+}
+
+.product-price {
+    margin: 10px 20px;
+    color: #5fa36a;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+main .add-to-cart {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: #ca5252;
+    width: 70px;
+    height: 35px;
+    text-align: center; /* текст по центру горизонтально */
+    line-height: 35px;  /* текс по центру вертикально */
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transfrom 500ms ease;
+}
+
+main .add-to-cart:hover {
+    transform: scale(1.05);
+}

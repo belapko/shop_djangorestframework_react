@@ -6,7 +6,7 @@ function Header() {
         <React.Fragment>
             <header>
                 <div>
-                    <a className="logo" href="">House Staff</a>
+                    <a className="logo" href="/">House Staff</a>
                     <ul className="nav">
                         <li>Корзина</li>
                         <li>Про нас</li>
