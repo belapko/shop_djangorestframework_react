@@ -7,6 +7,9 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
+    def __str__(self):
+        return self.title
+
 
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.SET_NULL, null=True, blank=True)
@@ -15,3 +18,6 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField()
     image_url = models.ImageField(upload_to='products_images')
+
+    def __str__(self):
+        return self.title

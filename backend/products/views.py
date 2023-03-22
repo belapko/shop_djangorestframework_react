@@ -11,3 +11,10 @@ class CategoryViewSet(ModelViewSet):
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductModelSerializer
+
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        category = self.request.query_params.get('category')
+        if category is not None:
+            queryset = queryset.filter(category=category)
+        return queryset
