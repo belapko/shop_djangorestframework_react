@@ -4,47 +4,45 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Products from "./components/Products";
-import axios from "axios";
-
-const productsApiUrl = "http://127.0.0.1:8000/api/products/"
+import Categories from "./components/Categories";
 
 function App() {
-    const [error, setError] = useState(null);
-    const [products, setProducts] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false)
+    let productsApiUrl = "http://127.0.0.1:8000/api/products/";
+    let categoriesApiUrl = "http://127.0.0.1:8000/api/categories/";
 
-    useEffect(() => {
-        fetch(productsApiUrl)
+    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+    useEffect((num) => {
+        fetch(productsApiUrl +  (num != null ? num : ""))
             .then(response => response.json())
             .then(
                 (result) => {
-                    setIsLoaded(true);
                     setProducts(result);
                 },
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
+            );
+        fetch(categoriesApiUrl)
+            .then(response => response.json())
+            .then(
+                (result) => {
+                    setCategories(result)
                 }
             )
-    }, [])
+    }, [categoriesApiUrl, productsApiUrl])
 
-    if (error) {
-        return <div>Ошибка: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
-    } else {
-        return (
-            <div className="wrapper">
-                <BrowserRouter>
-                    <Header/>
-                    <Routes>
-                        <Route path="/" element={<Products products={products}/>}/>
-                    </Routes>
-                    <Footer/>
-                </BrowserRouter>
-            </div>
-        );
-    }
+    return (
+        <div className="wrapper">
+            <BrowserRouter>
+                <Header/>
+                <Categories categories={categories}/>
+                <Routes>
+                    <Route path="/" element={<Products products={products}/>}/>
+                </Routes>
+                <Footer/>
+            </BrowserRouter>
+        </div>
+    );
+
 }
 
-    export default App;
+export default App;

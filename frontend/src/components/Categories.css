@@ -1,0 +1,14 @@
+.categories {
+    display: flex;
+}
+
+.category {
+    margin-right: 50px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px grey solid;
+    border-radius: 10px;
+}
