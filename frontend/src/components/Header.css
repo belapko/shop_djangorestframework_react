@@ -1,0 +1,62 @@
+header .logo {
+    color: inherit; /* Обнуляем стилизацию "a" */
+    text-decoration: none; /* Обнуляем стилизацию "a" */
+    font-weight: 600;
+    font-size: 20px;
+    transition: opacity 500ms ease; /* Поведение при наведении с заданным свойством opacity */
+}
+
+header .logo:hover {
+    opacity: 0.5; /* При наведении меняем прозрачность наполовину */
+}
+
+header ul.nav {
+    float: right; /* Прижимаем вправо */
+    list-style: none; /* Обнуляем стили ul */
+}
+
+header ul.nav li {
+    display: inline; /* Помещаем всё в одну строку */
+    margin-left: 25px; /* Отступ внешний слева от каждого элемента */
+    cursor: pointer; /* Курсор при наведении в руку */
+    transition: opacity 500ms ease;
+}
+
+header ul.nav li:hover {
+    opacity: 0.5;
+}
+
+header .presentation {
+    margin: 50px 0;
+    /* Картинки по пути и без дублирования */
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-blend-mode: multiply; /* Разрешаем наложение цветов */
+    /* накладываем цвет на изображение */
+    /* Отображение по центру картинки и на 82% от верха */
+    background: #fff url("../img/presentation.jpg") no-repeat center 82%;
+    position: relative; /*  /* Для дочернего элемента относительная позиция */
+}
+
+header .presentation::after {
+    content: "Лучшие товары для дома";
+    position: absolute; /* Абсолютная позиция от родительского элемента чтобы текст был на нём */
+    top: 100px;
+    left: 50px;
+    width: 300px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+}
+
+header .presentation::before {
+    content: "по низким ценам";
+    position: absolute;
+    top: 250px;
+    left: 50px;
+    width: 300px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+}
