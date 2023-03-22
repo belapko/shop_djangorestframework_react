@@ -62,3 +62,4 @@ celerybeat-schedule.*
 
 # mypy
 .mypy_cache/
+/backend/products_images/
