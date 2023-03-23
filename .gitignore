@@ -1,5 +1,6 @@
 /venv/
 *.idea
+*.env
 # Django #
 *.log
 *.pot
@@ -63,3 +64,4 @@ celerybeat-schedule.*
 # mypy
 .mypy_cache/
 /backend/products_images/
+/backend/backend/.env
