@@ -26,37 +26,3 @@ header ul.nav li:hover {
     opacity: 0.5;
 }
 
-header .presentation {
-    margin: 50px 0;
-    /* Картинки по пути и без дублирования */
-    width: 100%;
-    height: 500px;
-    background-size: cover;
-    background-blend-mode: multiply; /* Разрешаем наложение цветов */
-    /* накладываем цвет на изображение */
-    /* Отображение по центру картинки и на 82% от верха */
-    background: #fff url("../img/presentation.jpg") no-repeat center 82%;
-    position: relative; /*  /* Для дочернего элемента относительная позиция */
-}
-
-header .presentation::after {
-    content: "Лучшие товары для дома";
-    position: absolute; /* Абсолютная позиция от родительского элемента чтобы текст был на нём */
-    top: 100px;
-    left: 50px;
-    width: 300px;
-    font-size: 40px;
-    font-weight: 600;
-    color: #fff;
-}
-
-header .presentation::before {
-    content: "по низким ценам";
-    position: absolute;
-    top: 250px;
-    left: 50px;
-    width: 300px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
-}
