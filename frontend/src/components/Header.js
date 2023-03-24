@@ -14,7 +14,6 @@ function Header() {
                         <li>Профиль</li>
                     </ul>
                 </div>
-                <div className="presentation"></div>
             </header>
         </React.Fragment>
     );
