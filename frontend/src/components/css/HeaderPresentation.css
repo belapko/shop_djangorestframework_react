@@ -7,7 +7,7 @@
     background-blend-mode: multiply; /* Разрешаем наложение цветов */
     /* накладываем цвет на изображение */
     /* Отображение по центру картинки и на 82% от верха */
-    background: #fff url("../img/presentation.jpg") no-repeat center 82%;
+    background: #fff url("../../img/presentation.jpg") no-repeat center 82%;
     position: relative; /*  /* Для дочернего элемента относительная позиция */
 }
 

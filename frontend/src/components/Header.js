@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import "./Header.css"
+import "./css/Header.css"
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
 import {useNavigate} from "react-router-dom";
@@ -10,7 +10,9 @@ const Header = observer(() => {
     const navigate = useNavigate();
     const logout = () => {
         user.setUser({})
-        user.isAuth(false)
+        user.setIsAuth(false)
+        localStorage.removeItem('refresh')
+        localStorage.removeItem('access')
     }
     return (
         <React.Fragment>
