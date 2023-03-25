@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from "react";
-import "./Products.css"
+import "./css/Products.css"
 import Header from "../components/Header";
 import HeaderPresentation from "../components/HeaderPresentation";
 import {Context} from "../index";
@@ -60,14 +60,14 @@ const Products = observer(() => {
             products.setProducts(data.results)
             products.setTotalCount(data.count)
         })
-    }, [])
+    }, [products])
 
     useEffect(() => {
         fetchProducts(products.selectedCategory.id, products.page).then(data => {
             products.setProducts(data.results)
             products.setTotalCount(data.count)
         })
-    }, [products.page, products.selectedCategory])
+    }, [products, products.page, products.selectedCategory])
 
     return (
         <React.Fragment>

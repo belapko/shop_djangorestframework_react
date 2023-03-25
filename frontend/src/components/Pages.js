@@ -1,7 +1,7 @@
 import {observer} from "mobx-react-lite";
 import {useContext} from "react";
 import {Context} from "../index";
-import "./Pages.css"
+import "./css/Pages.css"
 
 
 const Pages = observer(() => {

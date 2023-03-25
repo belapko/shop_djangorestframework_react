@@ -14,8 +14,14 @@ export const login = async (username, password) => {
     return response
 }
 
-export const check = async () => {
+export const getVerify = async () => {
     let token = localStorage.getItem('access')
     const response = await $authHost.post('api/token/verify/', {token})
+    return response
+}
+
+export const getRefresh = async () => {
+    let refresh = localStorage.getItem('refresh')
+    const response = await $authHost.post('api/token/refresh/', {refresh})
     return response
 }

@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import "./Auth.css"
+import "./css/Auth.css"
 import {useNavigate, useLocation} from "react-router-dom";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
 import {login, registration} from "../http/userAPI";
@@ -87,6 +87,9 @@ const Auth = observer(() => {
                             </span>
                             </div>
                         }
+                        <div className="text-center">
+                            <span className="txt2" onClick={() => navigate(SHOP_ROUTE)}>На главную</span>
+                        </div>
                     </form>
                 </div>
             </div>
