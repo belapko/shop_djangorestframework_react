@@ -149,18 +149,24 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     # ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  # LimitOffsetPagination
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 4,
 }
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
     'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=1),
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
+    'BLACKLIST_AFTER_ROTATION': False,
+    'AUTH_TOKEN_CLASSES': (
+        'rest_framework_simplejwt.tokens.AccessToken',
+    )
 }
 
 AUTH_USER_MODEL = 'authentication.User'
 AUTHENTICATION_BACKENDS = ('authentication.backends.AuthBackend', )
 
+DOMAIN = ('localhost:3000')
+SITE_NAME = ('reactrestshop')
 DJOSER = {
     'USER_CREATE_PASSWORD_RETYPE': True,
     'SEND_ACTIVATION_EMAIL': True,

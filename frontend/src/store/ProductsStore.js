@@ -7,7 +7,7 @@ export default class ProductsStore {
         this._selectedCategory = {}
         this._page = 1
         this._totalCount = 0
-        this._limit = 3
+        this._limit = 4
         makeAutoObservable(this) /* mobx умничка следит за изменениями переменных this */
     }
 
@@ -15,7 +15,7 @@ export default class ProductsStore {
         this._categories = categories
     }
     setProducts(products) {
-        this._products = products
+        this._products = [...products]
     }
 
     setSelectedCategory(category) {
@@ -40,11 +40,11 @@ export default class ProductsStore {
     get selectedCategory() {
         return this._selectedCategory
     }
-    get totalCount() {
-        return this._totalCount
-    }
     get page() {
         return this._page
+    }
+    get totalCount() {
+        return this._totalCount
     }
     get limit() {
         return this._limit
