@@ -1,0 +1,52 @@
+.singlecard {
+    margin-top: 50px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 700px 600px;
+}
+
+img {
+    max-width: 600px;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.singlecard-title {
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.singlecard-price {
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.singlecard-description {
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.card__add {
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    font-size: 17px;
+    color: #70c05b;
+    padding: 15px 10px;
+    text-align: center;
+    border: 1px solid #70c05b;
+    border-radius: 4px;
+    cursor: pointer; /* Меняем курсор при наведении */
+    transition: 0.2s;
+    margin-top: auto; /* Прижимаем кнопку к низу карточки */
+}
+
+.card__add:hover {
+    border: 1px solid #808080;
+    background-color: #808080;
+    color: #fff;
+}

@@ -1,44 +1,33 @@
 import './App.css';
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import AppRouter from "./components/AppRouter";
+import {observer} from "mobx-react-lite";
+import {Context} from "./index";
+import {check} from "./http/userAPI";
 
-function App() {
-    // let productsApiUrl = "http://127.0.0.1:8000/api/products/";
-    // let categoriesApiUrl = "http://127.0.0.1:8000/api/categories/";
-    //
-    // const [products, setProducts] = useState([]);
-    // const [categories, setCategories] = useState([]);
-    //
-    // useEffect(() => {
-    //     fetch(productsApiUrl)
-    //         .then(response => response.json())
-    //         .then(
-    //             (result) => {
-    //                 setProducts(result.results);
-    //             },
-    //         );
-    //     fetch(categoriesApiUrl)
-    //         .then(response => response.json())
-    //         .then(
-    //             (result) => {
-    //                 setCategories(result.results)
-    //             }
-    //         )
-    // }, [categoriesApiUrl, productsApiUrl])
-    //
-    // console.log(categories)
-    // console.log(products)
+const App = observer(() => {
+    const {user} = useContext(Context)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        check().then(data => {
+            user.setUser(true)
+            user.setIsAuth(true)
+        }).finally(() => setLoading(false))
+    }, [])
+
+    if (loading) {
+        return <div>Загрузка</div>
+    }
 
     return (
-        <div className="wrapper">
-            <BrowserRouter>
-                <AppRouter />
-            </BrowserRouter>
-        </div>
+        <BrowserRouter>
+            <AppRouter/>
+        </BrowserRouter>
     );
 
-}
+})
 
 export default App;

@@ -5,16 +5,17 @@ export const fetchCategories = async () => {
     return data
 }
 
-export const fetchProducts = async (categoryId, page, limit = 5) => {
+export const fetchProducts = async (category, page) => {
     const {data} = await $host.get('api/products', {
         params: {
-            categoryId, page, limit
+            category, page
         }
     })
     return data
 }
 
+
 export const fetchOneProduct = async (id) => {
-    const {data} = await $host.get('api/products/' + id)
+    const {data} = await $host.get('api/products/' + id + '/')
     return data
 }

@@ -1,22 +1,43 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Header.css"
+import {Context} from "../index";
+import {observer} from "mobx-react-lite";
+import {useNavigate} from "react-router-dom";
+import {CART_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../utils/consts";
 
-function Header() {
+const Header = observer(() => {
+    const {user} = useContext(Context);
+    const navigate = useNavigate();
+    const logout = () => {
+        user.setUser({})
+        user.isAuth(false)
+    }
     return (
         <React.Fragment>
             <header>
                 <div>
-                    <a className="logo" href="/">House Staff</a>
+                    <span className="logo" onClick={() => navigate(SHOP_ROUTE)}>House Staff</span>
+                    {user.isAuth ?
                     <ul className="nav">
-                        <li>Корзина</li>
+                        <li onClick={() => navigate(CART_ROUTE)}>Корзина</li>
                         <li>Про нас</li>
                         <li>Контакты</li>
                         <li>Профиль</li>
+                        <li onClick={() => logout()}>Выйти</li>
                     </ul>
+                        :
+                        <ul className="nav">
+                        <li onClick={() => navigate(CART_ROUTE)}>Корзина</li>
+                        <li>Про нас</li>
+                        <li>Контакты</li>
+                        <li>Профиль</li>
+                        <li onClick={() => navigate(LOGIN_ROUTE)}>Войти</li>
+                    </ul>
+                    }
                 </div>
             </header>
         </React.Fragment>
     );
-}
+})
 
 export default Header;
