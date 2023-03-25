@@ -10,7 +10,7 @@ function Product() {
 
     useEffect(() => {
         fetchOneProduct(id).then(data => setProduct(data))
-    }, [])
+    }, [id])
 
     return (
         <>
