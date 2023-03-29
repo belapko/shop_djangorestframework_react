@@ -13,6 +13,8 @@ const Header = observer(() => {
         user.setIsAuth(false)
         localStorage.removeItem('refresh')
         localStorage.removeItem('access')
+        localStorage.removeItem('uid')
+        window.location.reload()
     }
     return (
         <React.Fragment>

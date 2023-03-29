@@ -18,10 +18,6 @@ export const authRoutes = [
     {
         path: ADMIN_ROUTE,
         Component: AdminPanel
-    },
-    {
-        path: CART_ROUTE,
-        Component: Cart
     }
 ]
 
@@ -31,7 +27,7 @@ export const publicRoutes = [
         Component: Products
     },
     {
-        path: PRODUCT_ROUTE + '/:id',
+        path: PRODUCT_ROUTE + '/:slug',
         Component: Product
     },
     {
@@ -45,5 +41,9 @@ export const publicRoutes = [
     {
         path: ACTIVATION_ROUTE + '/:uid/:token',
         Component: ActivateAccount
+    },
+    {
+        path: CART_ROUTE,
+        Component: Cart
     }
 ]

@@ -1,0 +1,10 @@
+.activate-btn {
+    display: block;
+    margin: 200px auto 0;
+    border: 1px solid black;
+    padding: 20px 20px;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}

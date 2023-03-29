@@ -1,0 +1,105 @@
+.cart {
+    margin-top: 50px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 700px 600px;
+}
+
+.cart-item {
+    display: flex;
+    max-height: 100px;
+    box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 20px;
+    width: 700px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cart-img {
+    max-height: 70px;
+    border: 1px solid;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.cart-title {
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.cart-price {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 20px;
+    position: absolute;
+    right: 2%;
+}
+
+.cart-items-count {
+    margin-left: 20px;
+    font-weight: 300;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.cart-quantity {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.cart-minus {
+    font-weight: 600;
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.cart-plus {
+    font-weight: 600;
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.card__order {
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    font-size: 17px;
+    color: #70c05b;
+    padding: 15px 10px;
+    text-align: center;
+    border: 1px solid #70c05b;
+    border-radius: 4px;
+    cursor: pointer; /* Меняем курсор при наведении */
+    transition: 0.2s;
+    margin-top: auto; /* Прижимаем кнопку к низу карточки */
+}
+
+.card__add:hover {
+    border: 1px solid #808080;
+    background-color: #808080;
+    color: #fff;
+}
+
+.cart-p {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.cart-delete {
+    cursor: pointer;
+    position: absolute;
+    right: 2%;
+    bottom: 15px;
+}

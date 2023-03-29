@@ -15,7 +15,7 @@ export const fetchProducts = async (category, page) => {
 }
 
 
-export const fetchOneProduct = async (id) => {
-    const {data} = await $host.get('api/products/' + id + '/')
+export const fetchOneProduct = async (slug) => {
+    const {data} = await $host.get('api/products/' + slug + '/')
     return data
 }

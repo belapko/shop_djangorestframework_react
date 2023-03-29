@@ -11,9 +11,10 @@ class CategoryViewSet(ModelViewSet):
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductModelSerializer
+    lookup_field = 'slug'
 
     def get_queryset(self):
-        queryset = Product.objects.all()
+        queryset = Product.objects.filter(quantity__gte=1)
         category = self.request.query_params.get('category')
         if category is not None:
             queryset = queryset.filter(category=category)

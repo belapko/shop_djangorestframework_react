@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'djoser',
     'products',
     'authentication',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -183,3 +184,5 @@ EMAIL_HOST_USER = 'reactrestshop@yandex.ru'
 EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_KEY'))
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'reactrestshop@yandex.ru'
+
+CART_SESSION_ID = 'cart'

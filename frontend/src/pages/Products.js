@@ -10,6 +10,7 @@ import {PRODUCT_ROUTE} from "../utils/consts";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
 import Pages from "../components/Pages";
+import {addToCart} from "../http/cartAPI";
 
 const ProductItem = ({product}) => {
     const navigate = useNavigate()
@@ -17,7 +18,7 @@ const ProductItem = ({product}) => {
     return (
         <div className="card">
             <div className="card__top">
-                <span className="card__image" onClick={() => navigate(PRODUCT_ROUTE + '/' + product.id)}>
+                <span className="card__image" onClick={() => navigate(PRODUCT_ROUTE + '/' + product.slug)}>
                     <img src={product.image_url} alt={product.title}/>
                 </span>
             </div>
@@ -25,10 +26,14 @@ const ProductItem = ({product}) => {
                 <div className="card__prices">
                     <div className="card__price">{product.price}</div>
                 </div>
-                <span className="card__title" onClick={() => navigate(PRODUCT_ROUTE + '/' + product.id)}>
+                <span className="card__title" onClick={() => navigate(PRODUCT_ROUTE + '/' + product.slug)}>
                     {product.title}
                 </span>
-                <button className="card__add">В корзину</button>
+                <button
+                    className="card__add"
+                    onClick={() => addToCart(localStorage.getItem('cartId'), product.pk)}
+                >В корзину
+                </button>
             </div>
             {/*<img src={product.image_url} alt={product.title}/>*/}
             {/*<p className="product-price">{product.price} ₽</p>*/}
@@ -45,7 +50,7 @@ const ProductList = observer(() => {
     return (
         <main>
             <div className="cards">
-                {products.products.map((product) => (<ProductItem key={product.id} product={product}/>))}
+                {products.products.map((product) => (<ProductItem key={product.pk} product={product}/>))}
             </div>
         </main>
     )
@@ -63,7 +68,7 @@ const Products = observer(() => {
     }, [products])
 
     useEffect(() => {
-        fetchProducts(products.selectedCategory.id, products.page).then(data => {
+        fetchProducts(products.selectedCategory.pk, products.page).then(data => {
             products.setProducts(data.results)
             products.setTotalCount(data.count)
         })
@@ -76,7 +81,7 @@ const Products = observer(() => {
                 <HeaderPresentation/>
                 <Categories/>
                 <ProductList/>
-                <Pages />
+                <Pages/>
                 <Footer/>
             </div>
         </React.Fragment>
