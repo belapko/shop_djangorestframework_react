@@ -25,3 +25,8 @@ export const getRefresh = async () => {
     const response = await $authHost.post('api/token/refresh/', {refresh})
     return response
 }
+
+export const getUserId = async () => {
+    const response = await $authHost.get('api/auth/users/me/')
+    return response
+}

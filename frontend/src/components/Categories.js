@@ -10,7 +10,7 @@ const Categories = observer(() => {
         <div className="categories">
             <p className="category" onClick={() => products.setSelectedCategory("")}>Все</p>
             {products.categories.map(category =>
-                <p key={category.id} onClick={() => products.setSelectedCategory(category)}
+                <p key={category.pk} onClick={() => products.setSelectedCategory(category)}
                    className="category">{category.title}</p>
             )}
         </div>

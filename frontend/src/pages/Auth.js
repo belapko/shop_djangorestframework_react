@@ -22,7 +22,6 @@ const Auth = observer(() => {
             let data;
             if (isLogin) {
                 data = await login(email, password);
-                console.log(data)
                 user.setUser(data)
                 user.setIsAuth(true)
                 navigate(SHOP_ROUTE)
