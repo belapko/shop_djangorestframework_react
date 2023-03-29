@@ -1,15 +1,16 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Header from "../components/Header";
 import "./css/Cart.css"
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
-import {fetchCart} from "../http/cartAPI";
+import {addToCart, deleteFromCart, fetchCart} from "../http/cartAPI";
 import {getUserId} from "../http/userAPI";
 import {PRODUCT_ROUTE} from "../utils/consts";
 import {useNavigate} from "react-router-dom";
 
 const CartItem = ({item}) => {
     const navigate = useNavigate()
+    let [, updateState] = React.useState();
 
     return (
         <div className="cart-item">
@@ -18,8 +19,23 @@ const CartItem = ({item}) => {
             <span className="cart-title"
                   onClick={() => navigate(PRODUCT_ROUTE + '/' + item.product.slug)}>
                 {item.product.title}</span>
-            <span className="cart-quantity">x{item.quantity}</span>
+            <div className="cart-items-count">
+                <button className="cart-minus" onClick={() => {
+                    addToCart(localStorage.getItem('cartId'), item.product.pk, -1)
+                    window.location.reload()
+                }}>-
+                </button>
+                <span className="cart-quantity">{item.quantity}
+            </span>
+                <button className="cart-plus"
+                        onClick={() => {
+                            addToCart(localStorage.getItem('cartId'), item.product.pk, +1)
+                            window.location.reload()
+                        }}>+
+                </button>
+            </div>
             <span className="cart-price">{item.price} ₽</span>
+            <span className="cart-delete" onClick={() => deleteFromCart(item.pk)}>Удалить</span>
         </div>
     )
 }

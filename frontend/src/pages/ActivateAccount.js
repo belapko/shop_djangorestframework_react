@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate, useParams} from "react-router-dom";
-import axios from "axios";
+import "./css/ActivateAccount.css"
 import {$host} from "../http";
 import {LOGIN_ROUTE} from "../utils/consts";
 
@@ -17,7 +17,7 @@ const ActivateAccount = () => {
 
     return (
         <React.Fragment>
-            <button onClick={activeClick}>Activate Now</button>
+            <button className="activate-btn" onClick={activeClick}>Activate Now</button>
         </React.Fragment>
     )
 }

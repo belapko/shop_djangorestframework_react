@@ -34,6 +34,8 @@ class AddCartItemSerializer(ModelSerializer):
             cartitem = CartItem.objects.get(product=product_pk, cart=cart_pk)
             cartitem.quantity += quantity
             cartitem.save()
+            if cartitem.quantity <= 0:
+                cartitem.delete()
             self.instance = cartitem
         except:
             self.instance = CartItem.objects.create(**self.validated_data)

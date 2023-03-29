@@ -1,6 +1,7 @@
 from .models import User
 from django.db.models import Q
 from django.contrib.auth.backends import ModelBackend
+from cart.models import Cart
 
 
 class AuthBackend(object):
@@ -19,6 +20,11 @@ class AuthBackend(object):
             user = User.objects.get(
                 Q(username=username) | Q(email=username)
             )
+            try:
+                Cart.objects.get(user=user)
+            except:
+                Cart.objects.create(user=user)
+
         except User.DoesNotExist:
             return None
 
