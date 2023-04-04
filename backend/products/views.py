@@ -4,7 +4,7 @@ from .models import Category, Product
 
 
 class CategoryViewSet(ModelViewSet):
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().order_by('id')
     serializer_class = CategoryModelSerializer
 
 
@@ -18,4 +18,4 @@ class ProductViewSet(ModelViewSet):
         category = self.request.query_params.get('category')
         if category is not None:
             queryset = queryset.filter(category=category)
-        return queryset
+        return queryset.order_by('id')

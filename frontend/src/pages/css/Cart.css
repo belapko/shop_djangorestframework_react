@@ -82,7 +82,7 @@
     border-radius: 4px;
     cursor: pointer; /* Меняем курсор при наведении */
     transition: 0.2s;
-    margin-top: auto; /* Прижимаем кнопку к низу карточки */
+    margin-top: 20px; /* Прижимаем кнопку к низу карточки */
 }
 
 .card__add:hover {
@@ -102,4 +102,17 @@
     position: absolute;
     right: 2%;
     bottom: 15px;
+}
+
+.payment-form {
+    margin-top: 20px;
+}
+
+.need-login {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.test-cards p {
+    margin-top: 10px;
 }

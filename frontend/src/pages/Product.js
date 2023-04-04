@@ -1,6 +1,6 @@
 import "./css/Product.css"
 import React, {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {fetchOneProduct} from "../http/productsAPI";
 import Header from "../components/Header";
 import {addToCart} from "../http/cartAPI";
@@ -8,7 +8,7 @@ import {addToCart} from "../http/cartAPI";
 function Product() {
     const [product, setProduct] = useState([])
     const {slug} = useParams()
-    const navigate = useNavigate()
+
 
     useEffect(() => {
         fetchOneProduct(slug).then(data => setProduct(data))

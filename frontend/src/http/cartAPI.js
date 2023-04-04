@@ -16,3 +16,4 @@ export const deleteFromCart = async (pk) => {
     window.location.reload()
     return data
 }
+
