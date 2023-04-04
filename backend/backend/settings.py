@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'products',
     'authentication',
     'cart',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'backend.urls'
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
 
 CORS_URLS_REGEX = r"^/api/.*"
 CORS_ALLOWED_ORIGINS = [
@@ -186,3 +189,12 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'reactrestshop@yandex.ru'
 
 CART_SESSION_ID = 'cart'
+
+# stripe
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')
+
+# yandex
+ya_account_id = os.getenv('ya_account_id')
+ya_secret_key = os.getenv('ya_secret_key')

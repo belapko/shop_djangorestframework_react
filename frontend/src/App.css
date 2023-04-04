@@ -1,1 +1,6 @@
-
+.form {
+    margin-top: 50px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 700px 600px;
+}

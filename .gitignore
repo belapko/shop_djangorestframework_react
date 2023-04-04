@@ -65,3 +65,4 @@ celerybeat-schedule.*
 .mypy_cache/
 /backend/products_images/
 /backend/backend/.env
+/.cert/
